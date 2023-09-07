@@ -5,6 +5,7 @@
 # No build directory
 build/*
 app/build/*
+app/bin/*
 
 # No gradle hidden stuff
 .gradle/*
