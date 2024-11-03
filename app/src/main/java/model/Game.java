@@ -58,8 +58,22 @@ public class Game {
    * @return True if the dealer has the initiaive.
    */
   public boolean stand() {
-    // TODO: implement me
-    return false;
+    if (getPlayerScore()<17) {
+      return dealer.hit(player);
+    }
+   if(getPlayerScore() > 21 && getDealerScore()>17){
+       dealer.showHand();
+     dealer.isGameOver();
+     }
+
+
+    while(isDealerWinner() == false || getDealerScore() < 17){
+      dealer.showHand();
+      if(!dealer.hit(dealer)){
+        break;
+      }
+    }
+    return dealer.isGameOver();
   }
 
   /**

@@ -89,8 +89,8 @@ public class Dealer extends Player {
    * The player has choosen to take no more cards, it is the dealers turn.
    */
   public boolean stand() {
-    //TODO: implement me
-    return false;
+
+    return true;
   }
 
 }
