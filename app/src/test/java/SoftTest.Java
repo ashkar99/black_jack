@@ -13,12 +13,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class SoftTest{
-
-  private HitStrategy hitRule;
-  private Dealer dealer;
-  private Deck deck;
-  private Player player;
+public class SoftTest {
+   private HitStrategy hitRule;
+   private Dealer dealer;
+   private Deck deck;
+   private Player player;
 
   @BeforeEach
   void setUp() {
@@ -28,11 +27,10 @@ public class SoftTest{
     player = new Player();
     deck = new Deck();
 
-    // Replace the hit strategy in the dealer with the Soft17 strategy
+  
     hitRule = rulesFactory.getHitRule();
-    dealer = new Dealer(rulesFactory) {
+    dealer = new Dealer(rulesFactory);
 
-    };
   }
 
   @Test
@@ -54,6 +52,8 @@ public class SoftTest{
     // Give dealer a hand that adds up to 18
     Card.Mutable sevenClubs = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[5]);
     Card.Mutable ace = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[12]);
+    ace.show(true);
+    sevenClubs.show(true);
     dealer.dealCard(sevenClubs);
 
     dealer.dealCard(ace);
@@ -69,7 +69,8 @@ public class SoftTest{
     Card.Mutable ten = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[8]);
     Card.Mutable seven = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[5]);
 
-
+    ten.show(true);
+    seven.show(true);
     dealer.dealCard(ten);
     dealer.dealCard(seven);
 
