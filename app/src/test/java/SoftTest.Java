@@ -1,18 +1,22 @@
-package model.rules;
 
 import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
+import model.Card.Color;
+import model.Card.Value;
+import model.rules.HitStrategy;
+import model.rules.RulesFactory;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class SoftTest {
+public class SoftTest{
 
-  private HitStrategy soft17HitStrategy;
+  private HitStrategy hitRule;
   private Dealer dealer;
   private Deck deck;
   private Player player;
@@ -24,44 +28,53 @@ class SoftTest {
     dealer = new Dealer(rulesFactory);
     player = new Player();
     deck = new Deck();
-    
+
     // Replace the hit strategy in the dealer with the Soft17 strategy
-    soft17HitStrategy = new Soft17HitStrategy();
+    hitRule = rulesFactory.getHitRule();
     dealer = new Dealer(rulesFactory) {
-      @Override
-      public boolean doHit() {
-        return soft17HitStrategy.doHit(this);
-      } 
+
     };
   }
 
   @Test
   void dealerShouldHitOnSoft17() {
     // Give dealer a "soft 17" hand: Ace and a 6
-    dealer.dealCard(new Card(Card.Value.Ace, Card.Color.Hearts));
-    dealer.dealCard(new Card(Card.Value.Six, Card.Color.Spades));
-    
+
+    Card.Mutable aceOfHearts = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[12]);
+    Card.Mutable sixOfSpades = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[4]);
+
+    dealer.dealCard(aceOfHearts);
+    dealer.dealCard(sixOfSpades);
+
     // Assert that the dealer should take another card on soft 17
-    assertTrue(soft17HitStrategy.doHit(dealer), "Dealer should hit on soft 17");
+    assertTrue(hitRule.doHit(dealer), "Dealer should hit on soft 17");
   }
 
   @Test
   void dealerShouldNotHitAbove17() {
     // Give dealer a hand that adds up to 18
-    dealer.dealCard(new Card(Card.Value.Seven, Card.Color.Clubs));
-    dealer.dealCard(new Card(Card.Value.Ace, Card.Color.Diamonds));
-    
+    Card.Mutable sevenClubs = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[5]);
+    Card.Mutable ace = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[12]);
+    dealer.dealCard(sevenClubs);
+
+    dealer.dealCard(ace);
+
     // Assert that the dealer should not hit on 18
-    assertFalse(soft17HitStrategy.doHit(dealer), "Dealer should not hit on 18");
+    assertFalse(hitRule.doHit(dealer), "Dealer should not hit on 18");
   }
 
   @Test
   void dealerShouldNotHitOnHard17() {
     // Give dealer a "hard 17" hand (e.g., 10 and 7)
-    dealer.dealCard(new Card(Card.Value.Ten, Card.Color.Clubs));
-    dealer.dealCard(new Card(Card.Value.Seven, Card.Color.Diamonds));
-    
+
+    Card.Mutable ten = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[8]);
+    Card.Mutable seven = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[5]);
+
+
+    dealer.dealCard(ten);
+    dealer.dealCard(seven);
+
     // Assert that the dealer should not take another card on hard 17
-    assertFalse(soft17HitStrategy.doHit(dealer), "Dealer should not hit on hard 17");
+    assertFalse(hitRule.doHit(dealer), "Dealer should not hit on hard 17");
   }
 }
