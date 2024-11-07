@@ -69,10 +69,11 @@ public class Player {
         score += cardScores[c.getValue().ordinal()];
       }
     }
+    
 
-    if (score > maxScore) {
+    if (score > maxScore || score == 17) {
       for (Card c : getHand()) {
-        if (c.getValue() == Card.Value.Ace && score > maxScore) {
+        if (c.getValue() == Card.Value.Ace && score > maxScore || c.getValue() == Card.Value.Ace && score == 17) {
           score -= 10;
         }
       }
