@@ -1,9 +1,10 @@
-package model.rules;
-
 import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
+import model.rules.HitStrategy;
+import model.rules.RulesFactory;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,14 +25,14 @@ class SoftTest {
     dealer = new Dealer(rulesFactory);
     player = new Player();
     deck = new Deck();
-    
+
     // Replace the hit strategy in the dealer with the Soft17 strategy
-    soft17HitStrategy = new Soft17HitStrategy();
+    soft17HitStrategy = rulesFactory.getHitRule();
     dealer = new Dealer(rulesFactory) {
       @Override
       public boolean doHit() {
         return soft17HitStrategy.doHit(this);
-      } 
+      }
     };
   }
 
@@ -40,7 +41,7 @@ class SoftTest {
     // Give dealer a "soft 17" hand: Ace and a 6
     dealer.dealCard(new Card(Card.Value.Ace, Card.Color.Hearts));
     dealer.dealCard(new Card(Card.Value.Six, Card.Color.Spades));
-    
+
     // Assert that the dealer should take another card on soft 17
     assertTrue(soft17HitStrategy.doHit(dealer), "Dealer should hit on soft 17");
   }
@@ -50,7 +51,7 @@ class SoftTest {
     // Give dealer a hand that adds up to 18
     dealer.dealCard(new Card(Card.Value.Seven, Card.Color.Clubs));
     dealer.dealCard(new Card(Card.Value.Ace, Card.Color.Diamonds));
-    
+
     // Assert that the dealer should not hit on 18
     assertFalse(soft17HitStrategy.doHit(dealer), "Dealer should not hit on 18");
   }
@@ -60,7 +61,7 @@ class SoftTest {
     // Give dealer a "hard 17" hand (e.g., 10 and 7)
     dealer.dealCard(new Card(Card.Value.Ten, Card.Color.Clubs));
     dealer.dealCard(new Card(Card.Value.Seven, Card.Color.Diamonds));
-    
+
     // Assert that the dealer should not take another card on hard 17
     assertFalse(soft17HitStrategy.doHit(dealer), "Dealer should not hit on hard 17");
   }
