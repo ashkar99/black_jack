@@ -38,12 +38,14 @@ public class SoftTest {
 
     Card.Mutable aceOfHearts = new Card.Mutable(Card.Color.values()[0], Card.Value.values()[12]);
     Card.Mutable sixOfSpades = new Card.Mutable(Card.Color.values()[1], Card.Value.values()[4]);
-
+    aceOfHearts.show(true);
+    sixOfSpades.show(true);
     dealer.dealCard(aceOfHearts);
     dealer.dealCard(sixOfSpades);
+    dealer.showHand();
 
     // Assert that the dealer should take another card on soft 17
-    assertTrue(hitRule.doHit(dealer), "Dealer should hit on soft 17");
+    assertTrue(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should hit on soft 17");
   }
 
   @Test
@@ -56,9 +58,9 @@ public class SoftTest {
     dealer.dealCard(sevenClubs);
 
     dealer.dealCard(ace);
-
+    dealer.showHand();
     // Assert that the dealer should not hit on 18
-    assertFalse(hitRule.doHit(dealer), "Dealer should not hit on 18");
+    assertFalse(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on 18");
   }
 
   @Test
@@ -74,6 +76,6 @@ public class SoftTest {
     dealer.dealCard(seven);
 
     // Assert that the dealer should not take another card on hard 17
-    assertFalse(hitRule.doHit(dealer), "Dealer should not hit on hard 17");
+    assertFalse(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on hard 17");
   }
 }

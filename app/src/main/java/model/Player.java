@@ -16,8 +16,8 @@ public class Player {
   }
 
   /**
-   * Adds a card to the Player's hand. 
-
+   * Adds a card to the Player's hand.
+   * 
    * @param addToHand The card to add to the hand.
    */
   public void dealCard(Card.Mutable addToHand) {
@@ -26,7 +26,7 @@ public class Player {
 
   /**
    * Returns the cards in thand.
-
+   * 
    * @return the cards in the Player's hand
    */
   public Iterable<Card> getHand() {
@@ -51,7 +51,7 @@ public class Player {
 
   /**
    * Calculates the score of the hand according to Black Jack rules.
-
+   * 
    * @return The score.
    */
   public int calcScore() {
@@ -69,11 +69,10 @@ public class Player {
         score += cardScores[c.getValue().ordinal()];
       }
     }
-    
 
-    if (score > maxScore || score == 17) {
+    if (score > maxScore) {
       for (Card c : getHand()) {
-        if (c.getValue() == Card.Value.Ace && score > maxScore || c.getValue() == Card.Value.Ace && score == 17) {
+        if (c.getValue() == Card.Value.Ace && score > maxScore) {
           score -= 10;
         }
       }
@@ -82,26 +81,24 @@ public class Player {
     return score;
   }
 
-  public boolean softCalc() {
-    int[] cardScores = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
-    assert (cardScores.length == Card.Value.Count.ordinal())
-            : "Card Scores array size does not match number of card values";
-
-    int score = 0;
-
-    for (Card c : getHand()) {
-
-      score += cardScores[c.getValue().ordinal()];
-    }
-
+  /**
+   * Score with softedition.
+   *
+   * @return score with softedition.
+   *
+   */
+  public int softCalc() {
+    int score = calcScore();
 
     if (score == 17) {
       for (Card c : getHand()) {
-        if (c.getValue() == Card.Value.Ace && score == 17) {
+        if (c.getValue() == Card.Value.Ace) {
           score -= 10;
+
         }
       }
 
-    } return true;
+    }
+    return score;
   }
 }

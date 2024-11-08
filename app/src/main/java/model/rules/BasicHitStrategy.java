@@ -6,10 +6,10 @@ class BasicHitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
 
   public boolean doHit(Player dealer) {
-    return dealer.calcScore() < hitLimit;
+    return dealer.calcScore() <= hitLimit;
   }
 
   public boolean softEdition(Player dealer) {
-    return dealer.softCalc();
+    return dealer.softCalc() < hitLimit;
   }
 }
