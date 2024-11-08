@@ -91,7 +91,7 @@ public class Dealer extends Player {
    */
   public boolean stand() {
     showHand();
-    while (hitRule.doHit(this)) {
+    while (hitRule.doHit(this) && hitRule.softEdition(this)) {
       hit(this);
 
     }

@@ -81,4 +81,27 @@ public class Player {
 
     return score;
   }
+
+  public boolean softCalc() {
+    int[] cardScores = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
+    assert (cardScores.length == Card.Value.Count.ordinal())
+            : "Card Scores array size does not match number of card values";
+
+    int score = 0;
+
+    for (Card c : getHand()) {
+
+      score += cardScores[c.getValue().ordinal()];
+    }
+
+
+    if (score == 17) {
+      for (Card c : getHand()) {
+        if (c.getValue() == Card.Value.Ace && score == 17) {
+          score -= 10;
+        }
+      }
+
+    } return true;
+  }
 }
