@@ -15,7 +15,7 @@ public class RulesFactory {
   }
 
   /**
-   * Creates the rule to use for the dealer's hit behavior.
+   * Creates the rule to use for the dealer's hit behavior (Soft 17 edition).
    *
    * @return The rule to use
    */
@@ -31,4 +31,19 @@ public class RulesFactory {
   public NewGameStrategy getNewGameRule() {
     return new AmericanNewGameStrategy();
   }
+
+  /**
+   * Creates the rule to use for the dealer Wins On Tie.
+   */
+  public WinStrategy getWinRuleDealerWin() {
+    return new DealerWinsOnTieStrategy();
+  }
+
+  /**
+   * Creates the rule to use for the dealer Wins On Tie.
+   */
+  public WinStrategy getWinRulePlayerWin() {
+    return new PlayerWinsOnTieStrategy();
+  }
+
 }
