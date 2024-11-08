@@ -10,6 +10,6 @@ class BasicHitStrategy implements HitStrategy, SoftStrategy {
   }
 
   public boolean softEdition(Player dealer) {
-    return dealer.softCalc() <= hitLimit;
+    return dealer.softCalc() < hitLimit;
   }
 }
