@@ -2,7 +2,7 @@ package model.rules;
 
 import model.Player;
 
-class BasicHitStrategy implements HitStrategy {
+class BasicHitStrategy implements HitStrategy, SoftStrategy {
   private static final int hitLimit = 17;
 
   public boolean doHit(Player dealer) {

@@ -4,6 +4,7 @@ import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
 
+
 /**
  * Represents a dealer player that handles the deck of cards and runs the game
  * using rules.
@@ -13,6 +14,7 @@ public class Dealer extends Player {
   private Deck deck;
   private NewGameStrategy newGameRule;
   private HitStrategy hitRule;
+
 
   /**
    * Initializing constructor.
@@ -91,7 +93,7 @@ public class Dealer extends Player {
    */
   public boolean stand() {
     showHand();
-    while (hitRule.doHit(this) && hitRule.softEdition(this)) {
+    while (hitRule.doHit(this)) {
       hit(this);
 
     }

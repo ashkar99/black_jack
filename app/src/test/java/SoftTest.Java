@@ -6,6 +6,7 @@ import model.Card.Color;
 import model.Card.Value;
 import model.rules.HitStrategy;
 import model.rules.RulesFactory;
+import model.rules.SoftStrategy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SoftTest {
   private HitStrategy hitRule;
+  private SoftStrategy softRule;
   private Dealer dealer;
   private Deck deck;
   private Player player;
@@ -28,6 +30,7 @@ public class SoftTest {
     deck = new Deck();
 
     hitRule = rulesFactory.getHitRule();
+    softRule = rulesFactory.getSoftRule();
     dealer = new Dealer(rulesFactory);
 
   }
@@ -45,7 +48,7 @@ public class SoftTest {
     dealer.showHand();
 
     // Assert that the dealer should take another card on soft 17
-    assertTrue(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should hit on soft 17");
+    assertTrue(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should hit on soft 17");
   }
 
   @Test
@@ -60,7 +63,7 @@ public class SoftTest {
     dealer.dealCard(ace);
     dealer.showHand();
     // Assert that the dealer should not hit on 18
-    assertFalse(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on 18");
+    assertFalse(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on 18");
   }
 
   @Test
@@ -76,6 +79,6 @@ public class SoftTest {
     dealer.dealCard(seven);
 
     // Assert that the dealer should not take another card on hard 17
-    assertFalse(hitRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on hard 17");
+    assertFalse(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on hard 17");
   }
 }
