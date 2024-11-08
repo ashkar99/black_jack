@@ -9,7 +9,7 @@ import java.util.List;
 public class Player {
 
   private List<Card.Mutable> hand;
-  protected final int maxScore = 21;
+  static final int maxScore = 21;
 
   public Player() {
     hand = new LinkedList<Card.Mutable>();

@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SoftTest {
-   private HitStrategy hitRule;
-   private Dealer dealer;
-   private Deck deck;
-   private Player player;
+  private HitStrategy hitRule;
+  private Dealer dealer;
+  private Deck deck;
+  private Player player;
 
   @BeforeEach
   void setUp() {
@@ -27,7 +27,6 @@ public class SoftTest {
     player = new Player();
     deck = new Deck();
 
-  
     hitRule = rulesFactory.getHitRule();
     dealer = new Dealer(rulesFactory);
 
