@@ -20,7 +20,7 @@ public class Player {
    *
    * @param addToHand The card to add to the hand.
    */
-  public void dealCard(Card.Mutable addToHand) {
+  public void dealCard(Card.Mutable addToHand ) {
     hand.add(addToHand);
   }
 
@@ -95,7 +95,7 @@ public class Player {
         if (c.getValue() == Card.Value.Ace) {
           score -= 10;
 
-        }
+        } else return score;
       }
 
     }

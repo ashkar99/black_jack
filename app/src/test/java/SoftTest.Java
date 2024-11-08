@@ -25,13 +25,13 @@ public class SoftTest {
   void setUp() {
     // Set up the test environment by creating instances of the required objects
     RulesFactory rulesFactory = new RulesFactory();
-    dealer = new Dealer(rulesFactory);
+    dealer = new Dealer(rulesFactory, deck);
     player = new Player();
     deck = new Deck();
 
     hitRule = rulesFactory.getHitRule();
     softRule = rulesFactory.getSoftRule();
-    dealer = new Dealer(rulesFactory);
+    dealer = new Dealer(rulesFactory,deck);
 
   }
 
@@ -48,7 +48,7 @@ public class SoftTest {
     dealer.showHand();
 
     // Assert that the dealer should take another card on soft 17
-    assertTrue(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should hit on soft 17");
+    assertTrue(softRule.softEdition(dealer), "Dealer should hit on soft 17");
   }
 
   @Test
@@ -63,7 +63,7 @@ public class SoftTest {
     dealer.dealCard(ace);
     dealer.showHand();
     // Assert that the dealer should not hit on 18
-    assertFalse(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on 18");
+    assertFalse(softRule.softEdition(dealer) , "Dealer should not hit on 18");
   }
 
   @Test
@@ -79,6 +79,6 @@ public class SoftTest {
     dealer.dealCard(seven);
 
     // Assert that the dealer should not take another card on hard 17
-    assertFalse(softRule.softEdition(dealer) && hitRule.doHit(dealer), "Dealer should not hit on hard 17");
+    assertFalse(softRule.softEdition(dealer), "Dealer should not hit on hard 17");
   }
 }

@@ -8,23 +8,18 @@ import model.Player;
 class AmericanNewGameStrategy implements NewGameStrategy {
 
   public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    Card.Mutable c;
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
-
-    c = deck.getCard();
-    c.show(true);
-    dealer.dealCard(c);
-
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
-
-    c = deck.getCard();
-    c.show(false);
-    dealer.dealCard(c);
+    for (int i = 0; i < 4; i++) {
+      if (i % 2 == 1) {
+        if (i == 3) {
+          dealer.dealCard(dealer, false);
+        } else {
+          dealer.dealCard(dealer, true);
+        }
+      } else {
+        dealer.dealCard(player, true);
+      }
+    }
 
     return true;
   }

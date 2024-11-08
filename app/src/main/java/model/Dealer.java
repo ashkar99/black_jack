@@ -21,11 +21,17 @@ public class Dealer extends Player {
    *
    * @param rulesFactory A factory that creates the rules to use.
    */
-  public Dealer(RulesFactory rulesFactory) {
-
+  public Dealer(RulesFactory rulesFactory, Deck deck) {
+    this.deck = deck;
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
   }
+
+  public void dealCard(Player player, boolean showCard) {
+    // Create a command to deal the card
+    Command dealCardCommand = new DealCardCommand(deck, player, showCard);
+    dealCardCommand.execute();
+}
 
   /**
    * Starts a new game if the game is not currently under way.
