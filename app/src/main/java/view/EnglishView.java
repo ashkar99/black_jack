@@ -93,7 +93,17 @@ public class EnglishView implements View {
 
   }
 
-  private void displayerCard(Iterable<Card> hand) {
+  private void disPlayerCard(Iterable<Card> hand) {
+    model.Card c = null;
+    for (model.Card card : hand) {
+      c = card;
+
+    }
+    System.out.println("Card value: " + c.getValue() + c.getColor());
+    pause();
+  }
+
+  private void disDealerCard(Iterable<Card> hand) {
     model.Card c = null;
     for (model.Card card : hand) {
       c = card;
@@ -116,6 +126,10 @@ public class EnglishView implements View {
   }
 
   public void displayNotificationPlayer(Iterable<Card> hand) {
-    displayerCard(hand);
+    disPlayerCard(hand);
+  }
+
+  public void displayNotificationDealer(Iterable<Card> hand) {
+    disDealerCard(hand);
   }
 }
