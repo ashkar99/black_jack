@@ -97,13 +97,15 @@ public class Player {
         if (c.getValue() == Card.Value.Ace) {
           score -= 10;
 
-        } else
+        } else {
           return score;
+        }
       }
 
     }
     return score;
   }
+
   /**
    * Adding observer for player.
    */

@@ -5,7 +5,6 @@ import model.Game;
 import model.ObserverInter;
 import view.View;
 
-
 /**
  * Scenario controller for playing the game.
  */
@@ -13,17 +12,19 @@ public class Player implements ObserverInter {
   private Game game;
   private View view;
 
-   /**
+  /**
    * player constructor.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "We want this.")
   public Player(Game game, View view) {
     this.game = game;
     this.view = view;
     this.game.addObserver(this);
   }
+
   /**
    * Runs the play use case.
-
+   *
    * @param game The game state.
    * @param view The view to use.
    * @return True as long as the game should continue.
@@ -56,10 +57,9 @@ public class Player implements ObserverInter {
     view.displayNotificationPlayer(game.getPlayerHand());
   }
 
-
   @Override
   public void notifyDealerNewCard() {
     view.displayNotificationPlayer(game.getDealerHand());
-    
+
   }
 }

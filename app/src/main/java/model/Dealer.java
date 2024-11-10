@@ -4,7 +4,6 @@ import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
 
-
 /**
  * Represents a dealer player that handles the deck of cards and runs the game
  * using rules.
@@ -15,23 +14,21 @@ public class Dealer extends Player {
   private NewGameStrategy newGameRule;
   private HitStrategy hitRule;
 
-
   /**
    * Initializing constructor.
    *
    * @param rulesFactory A factory that creates the rules to use.
    */
-  public Dealer(RulesFactory rulesFactory, Deck deck) {
-    this.deck = deck;
+  public Dealer(RulesFactory rulesFactory) {
+
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
   }
 
   public void dealCard(Player player, boolean showCard) {
     // Create a command to deal the card
-    Command dealCardCommand = new DealCardCommand(deck, player, showCard);
-    dealCardCommand.execute();
-}
+    getNewCard(player, showCard);
+  }
 
   /**
    * Starts a new game if the game is not currently under way.
@@ -105,5 +102,16 @@ public class Dealer extends Player {
     }
 
     return isGameOver();
+  }
+
+  /**
+   * getting a new card.
+   */
+  public void getNewCard(Player player, boolean show) {
+    Card.Mutable c;
+    c = deck.getCard();
+    c.show(show);
+    player.dealCard(c);
+
   }
 }

@@ -2,9 +2,6 @@ import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
-import model.Card.Color;
-import model.Card.Value;
-import model.rules.HitStrategy;
 import model.rules.RulesFactory;
 import model.rules.SoftStrategy;
 
@@ -15,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class SoftTest {
-  private HitStrategy hitRule;
   private SoftStrategy softRule;
   private Dealer dealer;
   private Deck deck;
@@ -25,13 +21,13 @@ public class SoftTest {
   void setUp() {
     // Set up the test environment by creating instances of the required objects
     RulesFactory rulesFactory = new RulesFactory();
-    dealer = new Dealer(rulesFactory, deck);
+    dealer = new Dealer(rulesFactory);
     player = new Player();
     deck = new Deck();
 
-    hitRule = rulesFactory.getHitRule();
+   
     softRule = rulesFactory.getSoftRule();
-    dealer = new Dealer(rulesFactory,deck);
+    dealer = new Dealer(rulesFactory);
 
   }
 
