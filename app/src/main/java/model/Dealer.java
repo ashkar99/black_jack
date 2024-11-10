@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Observer;
-
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
