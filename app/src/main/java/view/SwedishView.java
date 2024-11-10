@@ -100,8 +100,8 @@ public class SwedishView implements View {
    */
   private void pause() {
     try {
-      System.out.println("*pause*");
-      Thread.sleep(1500);
+      System.out.println("");
+      Thread.sleep(1000);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
