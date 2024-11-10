@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Observer;
+
 /**
  * Represents the entirety of the game. Acts as a Facade to the model.
  */
@@ -96,6 +98,11 @@ public class Game {
    */
   public int getPlayerScore() {
     return player.calcScore();
+  }
+
+  public void addObserver(ObserverInter observer) {
+    player.addObserver(observer);
+    dealer.addObserver(observer);
   }
 
 }

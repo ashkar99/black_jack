@@ -1,5 +1,7 @@
 package view;
 
+import model.Card;
+
 /**
  * Implements a Swedish console view.
  */
@@ -81,5 +83,11 @@ public class SwedishView implements View {
     }
     System.out.println("Poäng: " + score);
     System.out.println("");
+  }
+
+  @Override
+  public void displayNotificationPlayer(Iterable<Card> playerHand) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'displayNotificationPlayer'");
   }
 }

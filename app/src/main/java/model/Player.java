@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import java.util.List;
  * Represents a player in the Black Jack game. A Player has a hand of cards.
  */
 public class Player {
+  private ArrayList<ObserverInter> observer = new ArrayList<>();
 
   private List<Card.Mutable> hand;
   static final int maxScore = 21;
@@ -20,7 +22,7 @@ public class Player {
    *
    * @param addToHand The card to add to the hand.
    */
-  public void dealCard(Card.Mutable addToHand ) {
+  public void dealCard(Card.Mutable addToHand) {
     hand.add(addToHand);
   }
 
@@ -95,10 +97,17 @@ public class Player {
         if (c.getValue() == Card.Value.Ace) {
           score -= 10;
 
-        } else return score;
+        } else
+          return score;
       }
 
     }
     return score;
+  }
+  /**
+   * Adding observer for player.
+   */
+  public void addObserver(ObserverInter o) {
+    observer.add(o);
   }
 }

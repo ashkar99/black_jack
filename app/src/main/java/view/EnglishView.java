@@ -1,5 +1,7 @@
 package view;
 
+import model.Card;
+
 /**
  * Implements an english console view.
  */
@@ -68,5 +70,11 @@ public class EnglishView implements View {
       System.out.println("You Won!");
     }
 
+  }
+
+  @Override
+  public void displayNotificationPlayer(Iterable<Card> playerHand) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'displayNotificationPlayer'");
   }
 }

@@ -1,4 +1,4 @@
-package model.rules;
+package model;
 
 import java.util.ArrayList;
 

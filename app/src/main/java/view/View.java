@@ -1,5 +1,7 @@
 package view;
 
+import model.Card;
+
 /**
  * Encapsulates the generic view functionality.
  */
@@ -46,4 +48,6 @@ public interface View {
    * @param dealerIsWinner True if the dealer is the winner.
    */
   void displayGameOver(boolean dealerIsWinner);
+
+  void displayNotificationPlayer(Iterable<Card> playerHand);
 }

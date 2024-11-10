@@ -1,14 +1,26 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Game;
+import model.ObserverInter;
 import view.View;
 
 
 /**
  * Scenario controller for playing the game.
  */
-public class Player {
+public class Player implements ObserverInter {
+  private Game game;
+  private View view;
 
+   /**
+   * player constructor.
+   */
+  public Player(Game game, View view) {
+    this.game = game;
+    this.view = view;
+    this.game.addObserver(this);
+  }
   /**
    * Runs the play use case.
 
@@ -37,5 +49,17 @@ public class Player {
     }
 
     return input != 'q';
+  }
+
+  @Override
+  public void notifyPlayerNewCard() {
+    view.displayNotificationPlayer(game.getPlayerHand());
+  }
+
+
+  @Override
+  public void notifyDealerNewCard() {
+    view.displayNotificationPlayer(game.getDealerHand());
+    
   }
 }
