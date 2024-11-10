@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Represents a player in the Black Jack game. A Player has a hand of cards.
  */
-public class Player extends ObserverImpl{
+public class Player extends ObserverImpl {
 
   private List<Card.Mutable> hand;
   static final int maxScore = 21;
