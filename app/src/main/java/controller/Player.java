@@ -57,6 +57,13 @@ public class Player implements ObserverInter {
   @Override
   public void notifyPlayerNewCard() {
     view.displayNotificationPlayer(game.getPlayerHand());
+
+  }
+
+  @Override
+  public void notifyDealerNewCard() {
+    view.displayNotificationDealer(game.getDealerHand());
+
   }
 
 }
