@@ -9,11 +9,11 @@ Sadek Alashkar sa225ad
 
 ## How to Play Blackjack
 
-This guide explains the rules of Blackjack and how to play it, with variations in win conditions depending on the chosen strategy.
+This guide explains the rules of Blackjack and how to play it. Win conditions vary depending on the strategy chosen.
 
 ### Objective
 
-Get as close to 21 points as possible without going over (busting). Your goal is to have a higher total than the dealer without exceeding 21.
+Get as close to 21 points as possible without going over (busting). You aim to have a higher total than the dealer without exceeding 21.
 
 ### Card Values
 
@@ -29,7 +29,7 @@ Get as close to 21 points as possible without going over (busting). Your goal is
 ### Player Choices
 
 - **Play**: Start new game.
-- **Hit**: Draw another card to try to get closer to 21.
+- **Hit**: Draw another card to get closer to 21.
 - **Stand**: Keep your current hand and end your turn.
 - **Quit**: Quit the game.
 
@@ -43,15 +43,7 @@ Get as close to 21 points as possible without going over (busting). Your goal is
 
 - If your hand is closer to 21 than the dealer’s without going over, you win.
 - If you bust (exceed 21), you lose immediately.
-- If the dealer busts, player win.
+- If the dealer busts, the player win.
 - **If there is a tie**:
   - With **DealerWinsOnTieStrategy**, the dealer wins the tie.
   - With **PlayerWinsOnTieStrategy**, the player wins the tie.
-
-
-### Grade
-Grade 2 only
-
-### NOTE
-we have faced a problem when run the automatic test for requirment 5 in VScode and we couldn't solve it, but we run the test (SoftTest.java) in Intellij IDEA and all tests passed successfuly.
-![class diagram](img/testPassedConforming.jpg)
