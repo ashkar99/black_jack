@@ -24,4 +24,13 @@ public abstract class ObserverImpl {
     }
   }
 
+  /**
+   * player notify observer.
+   */
+  public void notifyObserversDealer() {
+    for (ObserverInter o : observer) {
+      o.notifyDealerNewCard();
+    }
+  }
+
 }
