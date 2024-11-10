@@ -55,4 +55,5 @@ public interface View {
   void displayGameOver(boolean dealerIsWinner);
 
   void displayNotificationPlayer(Iterable<Card> playerHand);
+  void displayNotificationDealer(Iterable<Card> playerHand);
 }
