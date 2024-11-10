@@ -57,8 +57,7 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
-     getNewCard(player, true);
-
+      getNewCard(player, true);
       return true;
     }
     return false;
@@ -112,6 +111,6 @@ public class Dealer extends Player {
     } else if (player != this) {
       notifyObserversPlayer();
     }
-    
+
   }
 }
