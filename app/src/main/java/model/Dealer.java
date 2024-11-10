@@ -107,6 +107,11 @@ public class Dealer extends Player {
     c = deck.getCard();
     c.show(show);
     player.dealCard(c);
-    notifyObserversPlayer();
+    if (player == this) {
+      notifyObserversDealer();
+    } else if (player != this) {
+      notifyObserversPlayer();
+    }
+    
   }
 }
