@@ -130,7 +130,8 @@ public class EnglishView implements View {
     for (model.Card card : hand) {
       c = card;
     }
-    System.out.println("Card value: " + c.getValue() + c.getColor());
+    System.out.println("Player card");
+    System.out.println(" Card value: " + c.getValue() + c.getColor());
     pause();
   }
 
@@ -144,18 +145,19 @@ public class EnglishView implements View {
     for (model.Card card : hand) {
       c = card;
     }
+    System.out.println("Dealer card");
     System.out.println("Card value: " + c.getValue() + c.getColor());
     pause();
   }
 
   /**
-   * Pauses the execution for 1.5 seconds to allow the user to view recent
+   * Pauses the execution for 2 seconds to allow the user to view recent
    * changes.
    */
   private void pause() {
     try {
       System.out.println("");
-      Thread.sleep(1000);
+      Thread.sleep(2000);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
