@@ -3,6 +3,11 @@ This document describes the current design. Note that some dependencies have bee
 
 ## Class Diagram
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. 
+![class diagram](img/Classdiagram_A3.jpg)
+
+
+
+
 
 ```mermaid
 classDiagram
@@ -59,7 +64,7 @@ Player --> Game
 
 
 ```
-![class diagram](img/Classdiagram_A3.jpg)
+
 
 
 ## Stand - Sequence Diagram
