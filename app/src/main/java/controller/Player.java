@@ -3,6 +3,7 @@ package controller;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Game;
 import model.ObserverInter;
+import view.Choice;
 import view.View;
 
 /**
