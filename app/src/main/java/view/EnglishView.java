@@ -72,9 +72,29 @@ public class EnglishView implements View {
 
   }
 
-  @Override
-  public void displayNotificationPlayer(Iterable<Card> playerHand) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'displayNotificationPlayer'");
+  private void displayerCard(Iterable<Card> hand) {
+    model.Card c = null;
+    for (model.Card card : hand) {
+      c = card;
+
+    }
+    System.out.println("Card value: " + c.getValue() + c.getColor());
+    pause();
+  }
+
+  /**
+   * a method to pause for 1.5 seconds.
+   */
+  private void pause() {
+    try {
+      System.out.println("");
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void displayNotificationPlayer(Iterable<Card> hand) {
+    displayerCard(hand);
   }
 }
