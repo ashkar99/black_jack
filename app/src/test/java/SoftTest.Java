@@ -25,9 +25,7 @@ public class SoftTest {
     player = new Player();
     deck = new Deck();
 
-   
     softRule = rulesFactory.getSoftRule();
-    dealer = new Dealer(rulesFactory);
 
   }
 
@@ -60,6 +58,7 @@ public class SoftTest {
     dealer.showHand();
     // Assert that the dealer should not hit on 18
     assertFalse(softRule.softEdition(dealer) , "Dealer should not hit on 18");
+    System.out.println("tetstetette");
   }
 
   @Test
