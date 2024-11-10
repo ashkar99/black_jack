@@ -9,19 +9,12 @@ import model.Player;
 class InternationalNewGameStrategy implements NewGameStrategy {
 
   public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    Card.Mutable c;
+    dealer.getNewCard(player, true);
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+    dealer.getNewCard(dealer, true);
 
-    c = deck.getCard();
-    c.show(true);
-    dealer.dealCard(c);
-
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+    dealer.getNewCard(player, true);
+    dealer.getNewCard(dealer, true);
 
     return true;
   }
