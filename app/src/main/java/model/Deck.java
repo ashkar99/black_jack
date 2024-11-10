@@ -33,7 +33,7 @@ public class Deck {
 
   /**
    * Gets the first card in the deck. The card is removed from the deck.
-   * 
+   *
    * @return the card to get and remove.
    */
   public Card.Mutable getCard() {
