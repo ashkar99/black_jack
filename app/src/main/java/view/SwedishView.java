@@ -140,8 +140,8 @@ public class SwedishView implements View {
     for (model.Card card : hand) {
       c = card;
     }
-    System.out.println("spelare ");
-    System.out.println(" kortet: " + c.getValue() + c.getColor());
+    System.out.println("Spelare kort");
+    System.out.println(" Kortet: " + c.getValue() + c.getColor());
     pause();
   }
 
@@ -155,8 +155,8 @@ public class SwedishView implements View {
     for (model.Card card : hand) {
       c = card;
     }
-    System.out.println("Dealer card");
-    System.out.println(" kortet: " + c.getValue() + c.getColor());
+    System.out.println("Croupier kort");
+    System.out.println(" Kortet: " + c.getValue() + c.getColor());
     pause();
   }
 

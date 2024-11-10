@@ -146,7 +146,7 @@ public class EnglishView implements View {
       c = card;
     }
     System.out.println("Dealer card");
-    System.out.println("Card value: " + c.getValue() + c.getColor());
+    System.out.println(" Card value: " + c.getValue() + c.getColor());
     pause();
   }
 
