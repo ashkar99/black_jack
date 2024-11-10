@@ -20,7 +20,7 @@ public class EnglishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
    */
   public int getInput() {
@@ -34,6 +34,27 @@ public class EnglishView implements View {
       System.out.println("" + e);
       return 0;
     }
+  }
+
+  /**
+   * Avilable choices.
+   */
+  public Choice choices() {
+    int input = getInput();
+    if (input == 'p') {
+      return Choice.Play;
+    }
+    if (input == 'h') {
+      return Choice.Hit;
+    }
+    if (input == 's') {
+      return Choice.Stand;
+    }
+    if (input == 'q') {
+      return Choice.Quit;
+    }
+    return null;
+
   }
 
   public void displayCard(model.Card card) {
@@ -59,7 +80,7 @@ public class EnglishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {

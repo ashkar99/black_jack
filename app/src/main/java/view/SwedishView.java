@@ -38,6 +38,27 @@ public class SwedishView implements View {
     }
   }
 
+    /**
+   * Avilable choices.
+   */
+  public Choice choices() {
+    int input = getInput();
+    if (input == 'p') {
+      return Choice.Play;
+    }
+    if (input == 'h') {
+      return Choice.Hit;
+    }
+    if (input == 's') {
+      return Choice.Stand;
+    }
+    if (input == 'q') {
+      return Choice.Quit;
+    }
+    return null;
+
+  }
+
   /**
    * Displays a card.
    * 
