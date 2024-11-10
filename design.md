@@ -59,6 +59,8 @@ Player --> Game
 
 
 ```
+![class diagram](img/Classdiagram_A3.jpg)
+
 
 ## Stand - Sequence Diagram
 This is the detailed sequence diagram for the `Game.stand` method. This is what should be implemented.
