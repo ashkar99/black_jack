@@ -3,6 +3,7 @@ package model;
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
+import model.rules.WinStrategy;
 
 
 /**
@@ -14,6 +15,7 @@ public class Dealer extends Player {
   private Deck deck;
   private NewGameStrategy newGameRule;
   private HitStrategy hitRule;
+  private WinStrategy winStrategy;
 
 
   /**
@@ -25,6 +27,7 @@ public class Dealer extends Player {
     this.deck = deck;
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
+    winStrategy = rulesFactory.getWinRuleDealerWin();
   }
 
   public void dealCard(Player player, boolean showCard) {
@@ -74,12 +77,7 @@ public class Dealer extends Player {
    * @return True if the dealer is the winner, false if the player is the winner.
    */
   public boolean isDealerWinner(Player player) {
-    if (player.calcScore() > maxScore) {
-      return true;
-    } else if (calcScore() > maxScore) {
-      return false;
-    }
-    return calcScore() >= player.calcScore();
+    return winStrategy.isDealerWinner(this, player);
   }
 
   /**
