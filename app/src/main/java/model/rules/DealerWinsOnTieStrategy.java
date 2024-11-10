@@ -15,7 +15,7 @@ public class DealerWinsOnTieStrategy implements WinStrategy {
       return true; // Player busts, dealer wins
     }
     if (dealerScore > playerScore) {
-      return false; // Dealer busts, player wins
+      return true; // Dealer busts, player wins
     }
     return dealerScore >= playerScore; // Dealer wins on tie
   }
