@@ -22,7 +22,7 @@ public class SwedishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
    */
   public int getInput() {
@@ -40,7 +40,7 @@ public class SwedishView implements View {
 
   /**
    * Displays a card.
-
+   * 
    * @param card The card to display.
    */
   public void displayCard(model.Card card) {
@@ -49,7 +49,7 @@ public class SwedishView implements View {
     } else {
       String[] colors = { "Hjärter", "Spader", "Ruter", "Klöver" };
       String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio",
-                          "knekt", "dam", "kung", "ess" };
+          "knekt", "dam", "kung", "ess" };
       System.out.println("" + colors[card.getColor().ordinal()] + " " + values[card.getValue().ordinal()]);
     }
   }
@@ -64,7 +64,7 @@ public class SwedishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {
@@ -85,9 +85,29 @@ public class SwedishView implements View {
     System.out.println("");
   }
 
-  @Override
-  public void displayNotificationPlayer(Iterable<Card> playerHand) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'displayNotificationPlayer'");
+  private void displayerCard(Iterable<Card> hand) {
+    model.Card c = null;
+    for (model.Card card : hand) {
+      c = card;
+
+    }
+    System.out.println("Card value: " + c.getValue() + c.getColor());
+    pause();
+  }
+
+  /**
+   * a method to pause for 1.5 seconds.
+   */
+  private void pause() {
+    try {
+      System.out.println("*pause*");
+      Thread.sleep(1500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void displayNotificationPlayer(Iterable<Card> hand) {
+    displayerCard(hand);
   }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Implantation of observer-pettern.
  */
-public class ObserverImpl {
+public abstract class ObserverImpl {
   private ArrayList<ObserverInter> observer = new ArrayList<>();
 
   /**
@@ -21,15 +21,6 @@ public class ObserverImpl {
   public void notifyObserversPlayer() {
     for (ObserverInter o : observer) {
       o.notifyPlayerNewCard();
-    }
-  }
-
-  /**
-   * dealer notify observer.
-   */
-  public void notifyObserversDelaer() {
-    for (ObserverInter o : observer) {
-      o.notifyDealerNewCard();
     }
   }
 

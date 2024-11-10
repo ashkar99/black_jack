@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Observer;
+
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
@@ -54,10 +56,7 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
-      Card.Mutable c;
-      c = deck.getCard();
-      c.show(true);
-      player.dealCard(c);
+     getNewCard(player, true);
 
       return true;
     }
@@ -112,6 +111,6 @@ public class Dealer extends Player {
     c = deck.getCard();
     c.show(show);
     player.dealCard(c);
-
+    notifyObserversPlayer();
   }
 }

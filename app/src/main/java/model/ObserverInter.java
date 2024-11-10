@@ -5,6 +5,4 @@ package model;
  */
 public interface ObserverInter {
   public void notifyPlayerNewCard();
-
-  public void notifyDealerNewCard();
 }

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Represents a player in the Black Jack game. A Player has a hand of cards.
  */
-public class Player {
+public class Player extends ObserverImpl{
   private ArrayList<ObserverInter> observer = new ArrayList<>();
 
   private List<Card.Mutable> hand;
