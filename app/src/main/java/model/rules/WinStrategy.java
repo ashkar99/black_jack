@@ -2,7 +2,7 @@ package model.rules;
 
 import model.Player;
 
-/*
+/**
  * Rulles for dealer or player winner on tie.
  */
 public interface WinStrategy {
