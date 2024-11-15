@@ -5,7 +5,7 @@ import view.EnglishView;
 import view.SwedishView;
 import view.View;
 
-/** QQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+/** 
  * Starts the application using the console.
  */
 public class App {
