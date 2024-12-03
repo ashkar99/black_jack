@@ -23,8 +23,8 @@ Get as close to 21 points as possible without going over (busting). You aim to h
 
 ### Game Start
 
-- Each player and the dealer are dealt two cards. The dealer shows one card face up and keeps the other face down.
-- Players review their cards and decide on their next move.
+- The player and the dealer are dealt two cards. The dealer shows one card face up and keeps the other face down.
+- Player review their cards and decide on their next move.
 
 ### Player Choices
 
@@ -35,7 +35,7 @@ Get as close to 21 points as possible without going over (busting). You aim to h
 
 ### Dealer’s Turn (Soft 17 Rule)
 
-- After players have finished their turns, the dealer reveals their hidden card.
+- After player have finished their turns, the dealer reveals their hidden card.
 - The dealer must **hit until reaching at least 17**.
 - If the dealer has a "soft 17" (a hand with an Ace counted as 11, e.g., Ace + 6), the dealer **must hit** and draw another card.
 
